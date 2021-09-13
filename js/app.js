@@ -23,7 +23,9 @@ const showProducts = (products) => {
       <h5>Rating count: ${product.rating.count}</h5>
       <h6>Rating rate: ${product.rating.rate}</h6>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button id="details-btn" class="btn btn-danger" onclick="ProductDetails()" >Details</button></div>
+
+  
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -80,4 +82,27 @@ const updateTotal = () => {
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal;
+};
+
+// single product details
+const ProductDetails = () => {
+  fetch('https://fakestoreapi.com/products/1')
+  .then(res=>res.json())
+  .then(json=>ShowDeatils(json))
+};
+const ShowDeatils = (data) =>{
+  console.log(data);
+  const divDetails = document.createElement("div");
+  divDetails.innerHTML =`
+  <h1>hello</h1>
+  <h3>${data.title}</h3>
+      <p>Category: ${data.category}</p>
+      <h2>Price: $ ${data.price}</h2>
+      <h5>Rating count: ${data.rating.count}</h5>
+      <h6>Rating rate: ${data.rating.rate}</h6>
+
+  `;
+  // divDetails.innerText = '';
+  document.getElementById("details").appendChild(divDetails);
+
 };
