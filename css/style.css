@@ -36,6 +36,10 @@ body {
   justify-content: center;
 }
 .single-product {
+  border: 1px solid lightpink;
+  border-radius: 5px;
+  box-shadow: 4px 4px 7px 7px lemonchiffon;
+  margin: 10px;
   padding: 10px;
   transition: 0.6s;
 }
@@ -43,6 +47,8 @@ body {
   box-shadow: 4px 4px 7px gray;
   border-radius: 10px;
   border: 1px solid cyan;
+  background-color: lightskyblue;
+  transition: background-color 2s ease-in-out .5s;
 }
 .product-image {
   width: 150px;
